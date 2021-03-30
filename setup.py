@@ -15,7 +15,7 @@ if not version:
     raise RuntimeError('version is not set')
 
 setup(name='covid_vaccine_stat',
-      author='Euiseo Cha',
+      author='zeroday0619',
       url='https://github.com/zeroday0619/covid_vaccine_stat',
       project_urls={
           "Issue tracker": "https://github.com/zeroday0619/covid_vaccine_stat/issues",
