@@ -6,7 +6,6 @@
 
 #### 공공데이터 포털 ( [data.go.kr](https://www.data.go.kr/) ) 에서 제공하는 코로나19 예방접종 실적 통계 데이터 조회 서비스 API Wrapper
 
----
 
 ## **Usage**
 
