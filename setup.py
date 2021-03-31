@@ -14,24 +14,35 @@ with open('covid_vaccine_stat/__init__.py') as f:
 if not version:
     raise RuntimeError('version is not set')
 
-setup(name='covid_vaccine_stat',
-      author='zeroday0619',
-      url='https://github.com/zeroday0619/covid_vaccine_stat',
-      project_urls={
-          "Issue tracker": "https://github.com/zeroday0619/covid_vaccine_stat/issues",
-      },
-      version=version,
-      packages=["covid_vaccine_stat"],
-      license='MIT',
-      description="""A Python wrapper for the [https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk
-      =15077756](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15077756)""",
-      include_package_data=True,
-      install_requires=requirements,
-      python_requires='>=3.7.0',
-      classifiers=[
-          'License :: OSI Approved :: MIT License',
-          'Operating System :: OS Independent',
-          'Programming Language :: Python :: 3.7',
-          'Programming Language :: Python :: 3.8',
-      ]
-      )
+readme = ''
+with open('README.rst') as f:
+    readme = f.read()
+
+setup(
+    name='covid_vaccine_stat', author='zeroday0619',
+    url='https://github.com/zeroday0619/covid_vaccine_stat',
+    project_urls={"Issue tracker": "https://github.com/zeroday0619/covid_vaccine_stat/issues"},
+    version=version,
+    packages=["covid_vaccine_stat"],
+    license='MIT',
+    long_description=readme,
+    long_description_content_type="text/markdown",
+    description="""
+    공공데이터 포털 ( [data.go.kr](https://www.data.go.kr/) ) 에서 제공하는 코로나19 예방접종 실적 통계 데이터 조회 서비스 API Wrapper
+    """,
+    include_package_data=True,
+    install_requires=requirements,
+    python_requires='>=3.7.0',
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Natural Language :: Korean',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+    ]
+)
