@@ -11,6 +11,10 @@
 
 ### Install module
 ```shell
+pip install covid-vaccine-stat
+```
+or
+```shell
 pip install git+https://github.com/zeroday0619/covid_vaccine_stat.git
 ```
 
