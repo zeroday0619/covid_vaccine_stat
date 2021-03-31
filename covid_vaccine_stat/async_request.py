@@ -2,14 +2,13 @@ from typing import Optional
 
 import aiohttp
 
+from covid_vaccine_stat._conf import API_URL
 from covid_vaccine_stat.error import RequestError
 from covid_vaccine_stat.model import VACCINE_STAT_API
 from covid_vaccine_stat.util import add_authorize_parameter, build_parameter
 
-__api_url__ = "https://api.odcloud.kr/api/15077756/v1/vaccine-stat"
 
-
-class AsyncRequest:
+class AsyncRequest(object):
     @classmethod
     async def fetch(
         cls,
@@ -53,10 +52,10 @@ class AsyncRequest:
             api_key=api_key,
         )
         async with aiohttp.ClientSession() as session:
-            async with session.get(url=__api_url__, params=param) as resp:
+            async with session.get(url=API_URL, params=param) as resp:
                 if not resp.status == 200:
                     err = await resp.json()
                     err_msg = err["msg"]
                     raise RequestError(err_msg)
-                res = await resp.json()
-            return VACCINE_STAT_API(**res)
+                rs = await resp.json()
+        return VACCINE_STAT_API(**rs)

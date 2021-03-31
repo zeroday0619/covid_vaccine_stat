@@ -2,14 +2,13 @@ from typing import Optional
 
 import requests
 
+from covid_vaccine_stat._conf import API_URL
 from covid_vaccine_stat.error import RequestError
 from covid_vaccine_stat.model import VACCINE_STAT_API
 from covid_vaccine_stat.util import add_authorize_parameter, build_parameter
 
-__api_url__ = "https://api.odcloud.kr/api/15077756/v1/vaccine-stat"
 
-
-class SyncRequest:
+class SyncRequest(object):
     @classmethod
     def fetch(
         cls,
@@ -52,7 +51,7 @@ class SyncRequest:
             ),
             api_key=api_key,
         )
-        resp = requests.get(url=__api_url__, params=param)
+        resp = requests.get(url=API_URL, params=param)
         if not resp.status_code == 200:
             err = resp.json()
             err_msg = err["msg"]
