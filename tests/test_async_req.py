@@ -19,6 +19,6 @@ def check_type(obj: dict):
 
 @pytest.mark.asyncio
 async def test_async_request():
-    res = await async_request.fetch(api_key=api_key, return_type="xml")
+    res = await async_request.fetch(api_key=api_key)
     assert id(res) == id(res) and res == res
     return check_type(obj=res.dict())
